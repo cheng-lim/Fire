@@ -1,0 +1,34 @@
+Server Side Public License
+
+VERSION 1, OCTOBER 2023
+
+Copyright (c) 2023 Cheng Lin
+
+"Fire" and "Fire Thrower" are free software: you can redistribute them and/or modify
+them under the terms of the Server Side Public License as published by
+Cheng Lin, either version 1 of the License, or any later version.
+
+"Fire" and "Fire Thrower" are distributed in the hope that they will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Additional Terms.
+
+These additional conditions apply to the use, modification, and distribution of "Fire" and "Fire Thrower":
+
+a. If you make the functionality of "Fire" or "Fire Thrower" available to third 
+   parties as a service, you must also make available the source code of the 
+   software that provides the service. The intention is to ensure that users 
+   who interact with "Fire" or "Fire Thrower" as a service can see the source code 
+   behind those services.
+
+b. You may not monetize the functionality of "Fire" or "Fire Thrower" directly provided 
+   by the licensed software without the express written permission of Cheng Lin.
+
+c. If any portion of these conditions is held invalid or unenforceable under any particular 
+   circumstance, the balance of the conditions is intended to apply, and the conditions 
+   as a whole are intended to apply in other circumstances.
+
+It is not the intention of this section to claim rights or contest your rights to work written entirely by you; rather, the intent is to exercise the right to control the distribution of derivative or collective works based on the licensed software.
+
+Inclusion of a covered work in an aggregate does not cause this License to apply to the other parts of the aggregate.
