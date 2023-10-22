@@ -1,13 +1,17 @@
 # Fire Documentation
 
-- Release: v0.0.1
-- Published time: 10/01/2023
+- Release: v0.0.2
+- Published time: 10/22/2023
 
 # Announcement
 
 ## What is Fire?
 
-Fire is a query language that enables 10x faster and simpler NoSQL query writing.
+Fire is a open source query language that enables 10x faster and simpler NoSQL query writing.
+
+Play around with the IDE, [Fire Thrower](https://firelang.org)!
+
+[GitHub](https://github.com/cheng-lim/Fire)
 
 ## An introduction to Fire and Fire Thrower
 
@@ -15,38 +19,58 @@ Fire is a simple, easy-to-learn query language, explicitly designed for interact
 
 Fire’s syntax blends programming elements with SQL functions, ensuring that anyone familiar with languages like JavaScript, Python, Java, etc., can learn and use Fire with minimal hassle and without needing to constantly refer to online resources to find the right SQL syntax.
 
-[Fire Thrower](https://fire-dev-flutter.web.app/), the dedicated Integrated Development Environment (IDE) for Fire, enables users to execute Fire queries without the necessity of creating a distinct program solely for querying. Currently, Fire Thrower is in a closed beta phase and is restricted to a pre-designated database in Google Cloud Firestore that we have provided.
+[Fire Thrower](https://firelang.org), the dedicated Integrated Development Environment (IDE) for Fire, enables users to execute Fire queries without the necessity of creating a distinct program solely for querying. Currently, Fire Thrower is in a closed beta phase and is restricted to a pre-designated database in Google Cloud Firestore that we have provided.
 
 In essence, Fire and Fire Thrower are designed to make database interaction more accessible and intuitive, lowering the barriers and making it simpler to work with different databases. The goal is to provide a universal approach to querying languages, facilitating easier navigation through various NoSQL databases with a consistent and intuitive syntax.
 
 # Table of content
 
-# Sample database scheme
+# **Database Configuration**
+
+## **Integrating Firebase Cloud Firestore with Fire Thrower**
+
+### **Steps for Configuration:**
+
+1. In Fire Thrower's top bar, click the settings button (represented by a gear icon), located adjacent to the documentation button (indicated by a help icon).
+2. A side panel will emerge.
+3. Activate the 'Use third-party Cloud Firestore' toggle.
+4. Navigate to your Firebase Console, then select Project Settings > General > Your Apps > Web App > firebaseConfig, and copy your Firebase credentials.
+5. Paste these credentials into Fire Thrower and hit the 'Save' button.
+
+### **Secure Storage of Your Firebase Credentials**
+
+Fire Thrower ensures the security of your Firebase credentials by storing and encrypting them directly in your browser. This local storage is exclusively for enabling Fire Thrower's connection to your Firestore database.
+
+## **Exploring with a Sample Database Schema**
+
+For testing purposes, we furnish a sample database schema. Find the structure below for reference.
 
 ```json
 {
   "cities": {
     "london": {
-      "country": "uk",
+      "country": "UK",
       "has_lakes": true,
-      "neighbor_cities": ["chelsea", "oxford", "cambridge"],
+      "neighboring_cities": ["Chelsea", "Oxford", "Cambridge"],
       "population": 123123123
     },
     "seattle": {
-      "country": "usa",
+      "country": "USA",
       "has_lakes": true,
-      "neighbor_cities": ["san francisco", "los angeles", "oakland"],
+      "neighboring_cities": ["San Francisco", "Los Angeles", "Oakland"],
       "population": 1500000
     },
     "tokyo": {
-      "country": "japan",
+      "country": "Japan",
       "has_lakes": false,
-      "neighbor_cities": ["osaka", "nagoya", "kyoto"],
+      "neighboring_cities": ["Osaka", "Nagoya", "Kyoto"],
       "population": 2000000
     }
   }
 }
 ```
+
+This example helps illustrate how your data is organized within the database, offering an intuitive starting point for your explorations.
 
 # Get data
 
@@ -459,6 +483,59 @@ if (docSnap.exists()) {
 }
 ```
 
+# Output format
+
+The output will be presented in Fire’s pair (key-value) format, a JSON-like format. 
+We have introduced the '->' symbol to provide a clear distinction between the ID and the data. Also, to enhance readability, we have also eliminated curly brackets '{ }' at the top level, using square brackets as the primary notation for pairs and lists.
+
+Output in Fire
+
+```jsx
+london -> [
+  neighbor_cities -> ['chelsea', 'oxford', 'cambridge'],
+  population -> 123123123,
+  country -> 'uk',
+  has_lakes -> true
+],
+seattle -> [
+  population -> 1500000,
+  has_lakes -> true,
+  neighbor_cities -> ['san francisco', 'los angeles', 'oakland'],
+  country -> 'usa'
+],
+tokyo -> [
+  neighbor_cities -> ['osaka', 'nagoya', 'kyoto'],
+  population -> 2000000,
+  country -> 'japan',
+  has_lakes -> false,
+  birth_rate -> 0.89
+]
+```
+
+JSON Output in JSON
+
+```json
+"london": {
+  "neighbor_cities": ["chelsea", "oxford", "cambridge"],
+  "population": 123123123,
+  "country": "uk",
+  "has_lakes": true
+},
+"seattle": {
+  "population": 1500000,
+  "has_lakes": true,
+  "neighbor_cities": ["san francisco", "los angeles", "oakland"],
+  "country": "usa"
+},
+"tokyo": {
+  "neighbor_cities": ["osaka", "nagoya", "kyoto"],
+  "population": 2000000,
+  "country": "japan",
+  "has_lakes": false,
+  "birth_rate": 0.89
+}
+```
+
 # Errors
 
 ## Success
@@ -539,14 +616,19 @@ if (docSnap.exists()) {
               : '$title $errorMessage';
     ```
     
-    ## Predefined method errors
-    
-    - RenameValueInvalidError
-        - code: P001
-        - message: RenameValueInvalidError: Rename value is invalid.
-    - FieldAlreadyExistsError
-        - code: P002
-        - message: FieldAlreadyExistsError: The field already exists.
-    - DocumentAlreadyExistsError
-        - code: P003
-        - message: DocumentAlreadyExistsError: The document already exists.
+
+## Predefined method errors
+
+- RenameValueInvalidError
+    - code: P001
+    - message: RenameValueInvalidError: Rename value is invalid.
+- FieldAlreadyExistsError
+    - code: P002
+    - message: FieldAlreadyExistsError: The field already exists.
+- DocumentAlreadyExistsError
+    - code: P003
+    - message: DocumentAlreadyExistsError: The document already exists.
+
+[Release: v0.0.2](https://www.notion.so/Release-v0-0-2-b558ea60c62949ce9a5ed4232d4dace4?pvs=21)
+
+[Release: v0.0.1](https://www.notion.so/Release-v0-0-1-6cadd78c28034473b2245818addbfe96?pvs=21)
